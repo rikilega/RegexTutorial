@@ -23,27 +23,47 @@ The regex pattern begins by matching the start of the string with ^. Following t
 ## Regex Components
 
 ### Anchors
+Anchors are used to specify the position of the pattern in relation to a line of text.
 
+^ denotes the start of a line.
+$ denotes the end of a line.
+In our URL regex, ^ and $ are used to match the entire line. This means the pattern will only match if the entire line is a URL
 ### Quantifiers
+Quantifiers
+Quantifiers specify how many instances of a character, group, or character class must be present in the input for a match to be found.
 
-### OR Operator
+? means the preceding item is optional and will be matched, at most, once.
+* means the preceding item will be matched zero or more times.
++ means the preceding item will be matched one or more times.
+In our URL regex, (https?:\/\/)? means http:// or https:// is optional.
 
 ### Character Classes
+Character classes match one character out of a set of characters.
 
-### Flags
+\d matches any digit (equivalent to [0-9]).
+a-z matches any lowercase letter.
+A-Z matches any uppercase letter.
+. matches any character except newline.
+In our URL regex, [\da-z\.-]+ matches one or more alphanumeric characters, dots, or hyphens.
 
 ### Grouping and Capturing
+Grouping and Capturing
+Parentheses () are used for grouping and capturing.
 
+Groups allow us to apply quantifiers to entire patterns, or to restrict alternation to part of the pattern.
+Captured groups are automatically assigned a number and can be referenced with \n.
+In our URL regex, ([\da-z\.-]+) is a group that matches the domain name.
 ### Bracket Expressions
+Bracket Expressions
+Bracket expressions [...] match a single character out of the set of characters enclosed by the brackets.
 
+In our URL regex, [a-z\.]{2,6} matches a string of 2 to 6 lowercase letters or dots.
 ### Greedy and Lazy Match
-
-### Boundaries
-
-### Back-references
-
-### Look-ahead and Look-behind
+Greedy and Lazy Match
+Greedy quantifiers match as many instances of the pattern as possible.
+Lazy quantifiers match asfew instances of the pattern as possible.
+In our URL regex, * is a greedy quantifier. It matches as many instances of the preceding pattern as possible. For example, ([\/\w \.-]*) matches any number of slashes, alphanumeric characters, spaces, dots, or hyphens.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+[Richard Aspinall](https://github.com/rikilega), is a developer with 5 months of experience. If you would like to reach him for any reason please feel free to contact him at [rikilega](https://github.com/rikilega).
